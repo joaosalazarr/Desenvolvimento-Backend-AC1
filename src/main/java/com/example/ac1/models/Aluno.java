@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "tbl_alunos")
@@ -22,6 +23,7 @@ public class Aluno {
     
     @ManyToOne
     @JoinColumn(name = "idCurso")
+    @JsonBackReference
     private Curso curso;
 
     public Aluno(Long id, String nome, Curso curso, int anoIngresso) 

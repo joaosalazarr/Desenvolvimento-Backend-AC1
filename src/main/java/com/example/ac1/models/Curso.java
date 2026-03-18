@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "tbl_cursos")
@@ -22,6 +23,7 @@ public class Curso {
     private String nome;
 
     @OneToMany(mappedBy = "curso")
+    @JsonManagedReference
     private List<Aluno> alunos;
 
     public Curso(Long id, String nome) {
